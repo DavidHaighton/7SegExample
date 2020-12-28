@@ -1,2 +1,3 @@
 # 7SegExample
-example of using a 7 segment display with the MSP432 board and a timer to switch through the characters of a given string
+This is a demo of using a 7 segment display on the MSP432 board.
+It uses 1 whole port for the output and a timer to change between characters in a string.
