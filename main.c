@@ -48,11 +48,12 @@ void setup(void)
 
 //when timer =0;
 void TA1_N_IRQHandler(void){
-	static const char message[]="David Haighton";
+	//set the output to be the characters of message
+	static const char message[]="Hello"; //cant do hello world :^(
 	static int index=0;
 	setVal(&(P4->OUT),message[index]);
 	
-	index+=1;
+	index+=1;//goes to next character
 	if((sizeof(message)/sizeof(message[0]))==index){
 		index=0;
 	}

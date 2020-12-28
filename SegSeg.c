@@ -1,5 +1,5 @@
 #include "SevSeg.h"
-//does not work with k,
+//does not work with k, m, w
 	uint8_t char2pin[]={
 	0x3F,//A
 	0x7A,//B 
@@ -30,6 +30,7 @@
 	};
 	uint8_t num2pin[]={0x77 ,0x24,0x5D,0x6D,0x2E,0x6B,0x7B,0x25,0x7F,0x6F};                                                                                                                                            
 	
+	
 	void setVal(volatile uint8_t *segment,char c){
 		(*segment)&=(uint8_t)(1<<7);//clear all but decimal
 		if(c>='0'&&c<'9'){
@@ -46,9 +47,11 @@
 		}
 	
 	}
+	
 	uint8_t hasDecimal(volatile uint8_t *segment){
 		return (*segment)|(uint8_t)(1<<7);
 	}
+	
 	void setDecimal(volatile uint8_t *segment,uint8_t on){
 		if(on){
 			(*segment) |= (uint8_t)(1<<7);
@@ -57,6 +60,7 @@
 			(*segment) &=~(uint8_t)(1<<7);
 		}
 	}
+	
 	void clear(volatile uint8_t *segment){
 		(*segment)=(uint8_t)0x00;
 	}
